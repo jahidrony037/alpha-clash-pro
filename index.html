@@ -30,7 +30,7 @@
       class="min-h-screen bg-[#010313] bg-[url('images/background.png')] bg-no-repeat bg-center"
     >
       <!-- home screen -->
-      <section class="home hidden">
+      <section class="home" id="home-screen">
         <div class="min-h-screen flex flex-col justify-center items-center">
           <h1
             class="md:text-[170px] text-5xl anton-regular text-center uppercase text-[#FFF] py-6"
@@ -41,11 +41,11 @@
           <p class="text-2xl text-[#FFF] font-medium">
             Unleash Your Keyboard Kung Fu : Press “Enter” to Play
           </p>
-          <button class="btn mt-[55px]">Play Now</button>
+          <button onclick="play()" class="btn mt-[55px]">Play Now</button>
         </div>
       </section>
       <!-- play ground -->
-      <section class="play-ground hidden">
+      <section class="play-ground hidden" id="playGround-screen">
         <div class="flex flex-col justify-around min-h-screen items-stretch">
           <!-- screen -->
           <div class="mt-5">
@@ -53,7 +53,8 @@
               class="artboard artboard-horizontal lg:w-[700px] w-[300px] lg:h-72 min-h-80 mx-auto text-center flex flex-row justify-center items-center border-[20px] border-solid border-[#010313CC] rounded-2xl backdrop-blur-md bg-[#FFFFFFB2]"
             >
               <div
-                class="cursor-pointer text-[128px] font-semibold text-[#010313] bg-none"
+                class="cursor-pointer text-[128px] font-semibold text-[#010313] bg-none uppercase"
+                id="alphabet"
               >
                 A
               </div>
@@ -62,37 +63,37 @@
           <!-- keyboard -->
           <div>
             <div class="flex justify-center gap-1 my-1 w-full">
-              <kbd class="kbd lg:kbd-lg cursor-pointer">q</kbd>
-              <kbd class="kbd lg:kbd-lg cursor-pointer">w</kbd>
-              <kbd class="kbd lg:kbd-lg cursor-pointer">e</kbd>
-              <kbd class="kbd lg:kbd-lg cursor-pointer">r</kbd>
-              <kbd class="kbd lg:kbd-lg cursor-pointer">t</kbd>
-              <kbd class="kbd lg:kbd-lg cursor-pointer">y</kbd>
-              <kbd class="kbd lg:kbd-lg cursor-pointer">u</kbd>
-              <kbd class="kbd lg:kbd-lg cursor-pointer">i</kbd>
-              <kbd class="kbd lg:kbd-lg cursor-pointer">o</kbd>
-              <kbd class="kbd lg:kbd-lg cursor-pointer">p</kbd>
+              <kbd id="q" class="kbd lg:kbd-lg cursor-pointer">q</kbd>
+              <kbd id="w" class="kbd lg:kbd-lg cursor-pointer">w</kbd>
+              <kbd id="e" class="kbd lg:kbd-lg cursor-pointer">e</kbd>
+              <kbd id="r" class="kbd lg:kbd-lg cursor-pointer">r</kbd>
+              <kbd id="t" class="kbd lg:kbd-lg cursor-pointer">t</kbd>
+              <kbd id="y" class="kbd lg:kbd-lg cursor-pointer">y</kbd>
+              <kbd id="u" class="kbd lg:kbd-lg cursor-pointer">u</kbd>
+              <kbd id="i" class="kbd lg:kbd-lg cursor-pointer">i</kbd>
+              <kbd id="o" class="kbd lg:kbd-lg cursor-pointer">o</kbd>
+              <kbd id="p" class="kbd lg:kbd-lg cursor-pointer">p</kbd>
             </div>
             <div class="flex justify-center gap-1 my-1 w-full">
-              <kbd class="kbd lg:kbd-lg cursor-pointer">a</kbd>
-              <kbd class="kbd lg:kbd-lg cursor-pointer">s</kbd>
-              <kbd class="kbd lg:kbd-lg cursor-pointer">d</kbd>
-              <kbd class="kbd lg:kbd-lg cursor-pointer">f</kbd>
-              <kbd class="kbd lg:kbd-lg cursor-pointer">g</kbd>
-              <kbd class="kbd lg:kbd-lg cursor-pointer">h</kbd>
-              <kbd class="kbd lg:kbd-lg cursor-pointer">j</kbd>
-              <kbd class="kbd lg:kbd-lg cursor-pointer">k</kbd>
-              <kbd class="kbd lg:kbd-lg cursor-pointer">l</kbd>
+              <kbd id="a" class="kbd lg:kbd-lg cursor-pointer">a</kbd>
+              <kbd id="s" class="kbd lg:kbd-lg cursor-pointer">s</kbd>
+              <kbd id="d" class="kbd lg:kbd-lg cursor-pointer">d</kbd>
+              <kbd id="f" class="kbd lg:kbd-lg cursor-pointer">f</kbd>
+              <kbd id="g" class="kbd lg:kbd-lg cursor-pointer">g</kbd>
+              <kbd id="h" class="kbd lg:kbd-lg cursor-pointer">h</kbd>
+              <kbd id="j" class="kbd lg:kbd-lg cursor-pointer">j</kbd>
+              <kbd id="k" class="kbd lg:kbd-lg cursor-pointer">k</kbd>
+              <kbd id="l" class="kbd lg:kbd-lg cursor-pointer">l</kbd>
             </div>
             <div class="flex justify-center gap-1 my-1 w-full">
-              <kbd class="kbd lg:kbd-lg cursor-pointer">z</kbd>
-              <kbd class="kbd lg:kbd-lg cursor-pointer">x</kbd>
-              <kbd class="kbd lg:kbd-lg cursor-pointer">c</kbd>
-              <kbd class="kbd lg:kbd-lg cursor-pointer">v</kbd>
-              <kbd class="kbd lg:kbd-lg cursor-pointer">b</kbd>
-              <kbd class="kbd lg:kbd-lg cursor-pointer">n</kbd>
-              <kbd class="kbd lg:kbd-lg cursor-pointer">m</kbd>
-              <kbd class="kbd lg:kbd-lg cursor-pointer">/</kbd>
+              <kbd id="z" class="kbd lg:kbd-lg cursor-pointer">z</kbd>
+              <kbd id="x" class="kbd lg:kbd-lg cursor-pointer">x</kbd>
+              <kbd id="c" class="kbd lg:kbd-lg cursor-pointer">c</kbd>
+              <kbd id="v" class="kbd lg:kbd-lg cursor-pointer">v</kbd>
+              <kbd id="b" class="kbd lg:kbd-lg cursor-pointer">b</kbd>
+              <kbd id="n" class="kbd lg:kbd-lg cursor-pointer">n</kbd>
+              <kbd id="m" class="kbd lg:kbd-lg cursor-pointer">m</kbd>
+              <kbd id="/" class="kbd lg:kbd-lg cursor-pointer">/</kbd>
             </div>
           </div>
           <!-- score btn -->
@@ -120,7 +121,7 @@
                   fill="white"
                 />
               </svg>
-              <span>1</span>
+              <span id="life-score">5</span>
             </button>
             <button class="btn rounded-2xl bg-[#360490] border-none text-white">
               Score
@@ -136,23 +137,28 @@
                   fill="white"
                 />
               </svg>
-              <span>1</span>
+              <span id="current-score">0</span>
             </button>
           </div>
         </div>
       </section>
       <!-- score ground -->
-      <section class="score">
+      <section id="score-ground" class="score hidden">
         <div class="bg-[url('images/rectangle6.png')] bg-no-repeat bg-center">
           <div
             class="flex flex-col justify-center items-center gap-4 min-h-screen"
           >
+            <p class="text-center text-xl text-white">game over !</p>
             <h1 class="text-6xl text-[#FFF]">
-              <span class="font-bold">Score:</span>
-              <span>14</span>
+              <span class="font-bold">Your Score:</span>
+              <span id="update-score">0</span>
             </h1>
-            <button class="btn text-2xl font-semibold text-[#010313]">
-              Play Now
+            <button
+              onclick="playAgain()"
+              id="play-again"
+              class="btn text-2xl font-semibold text-[#010313]"
+            >
+              Play Again
             </button>
             <p class="text-xl font-semibold text-[#FFF]">
               Practice will make you Pro
@@ -161,5 +167,7 @@
         </div>
       </section>
     </main>
+    <script src="script/utility.js"></script>
+    <script src="script/alpha-clash.js"></script>
   </body>
 </html>
